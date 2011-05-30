@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 ???????? 2011 16:21:40 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="net.it_tim.dude_of_ping3.database.DoorHistory" table="door_history" schema="public">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="hosts" class="net.it_tim.dude_of_ping3.database.Hosts" fetch="select">
+            <column name="hos_id" />
+        </many-to-one>
+        <property name="isopened" type="java.lang.Boolean">
+            <column name="isopened" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="time" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>

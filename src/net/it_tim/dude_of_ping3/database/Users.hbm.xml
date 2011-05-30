@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 ???????? 2011 16:21:40 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="net.it_tim.dude_of_ping3.database.Users" table="users" schema="public">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="login" type="string">
+            <column name="login" length="50" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="surname" type="string">
+            <column name="surname" length="50" />
+        </property>
+        <property name="hasAdminPerm" type="java.lang.Boolean">
+            <column name="has_admin_perm" />
+        </property>
+        <property name="hasViewPerm" type="java.lang.Boolean">
+            <column name="has_view_perm" />
+        </property>
+        <property name="hasOperatorPerm" type="java.lang.Boolean">
+            <column name="has_operator_perm" />
+        </property>
+        <set name="userActionHistories" table="user_action_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="net.it_tim.dude_of_ping3.database.UserActionHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

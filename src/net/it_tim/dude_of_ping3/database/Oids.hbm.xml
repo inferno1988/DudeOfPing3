@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 ???????? 2011 16:21:40 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="net.it_tim.dude_of_ping3.database.Oids" table="oids" schema="public">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="description" type="string">
+            <column name="description" length="50" />
+        </property>
+        <property name="oid" type="string">
+            <column name="oid" length="100" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

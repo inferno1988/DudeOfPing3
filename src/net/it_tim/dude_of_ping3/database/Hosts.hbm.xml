@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 ???????? 2011 16:21:40 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="net.it_tim.dude_of_ping3.database.Hosts" table="hosts" schema="public">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="ip" type="string">
+            <column name="ip" length="15" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="50" />
+        </property>
+        <property name="tocheck" type="java.lang.Boolean">
+            <column name="tocheck" />
+        </property>
+        <set name="temperatureHistories" table="temperature_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="hos_id" />
+            </key>
+            <one-to-many class="net.it_tim.dude_of_ping3.database.TemperatureHistory" />
+        </set>
+        <set name="powerHistories" table="power_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="hos_id" />
+            </key>
+            <one-to-many class="net.it_tim.dude_of_ping3.database.PowerHistory" />
+        </set>
+        <set name="knockHistories" table="knock_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="hos_id" />
+            </key>
+            <one-to-many class="net.it_tim.dude_of_ping3.database.KnockHistory" />
+        </set>
+        <set name="doorHistories" table="door_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="hos_id" />
+            </key>
+            <one-to-many class="net.it_tim.dude_of_ping3.database.DoorHistory" />
+        </set>
+    </class>
+</hibernate-mapping>
