@@ -1,5 +1,8 @@
 package net.it_tim.dude_of_ping3;
 
+import net.it_tim.dude_of_ping3.database.Users;
+import net.it_tim.dude_of_ping3.database.UsersHome;
+
 import org.snmp4j.CommunityTarget;
 import org.snmp4j.PDU;
 import org.snmp4j.Snmp;
@@ -17,6 +20,12 @@ public class Server {
 	
 
 	public static void main(String[] args) {
+		UsersHome uh = new UsersHome();
+		if (uh.checkPassword(Users.class, "inferno", "asd")) {
+			System.out.println("GOOD!");
+		} else {
+			System.out.println("BAD!");
+		}
 		String strIPAddress = "192.168.33.178";
 		String[] oids = {"1.3.6.1.4.1.35160.1.3.0", "1.3.6.1.4.1.35160.1.7.0", "1.3.6.1.4.1.35160.1.8.0", "1.3.6.1.4.1.35160.1.1.0",
 				"1.3.6.1.4.1.35160.1.16.1.13.4"};
