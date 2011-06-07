@@ -7,18 +7,18 @@ import javax.swing.JFrame;
 import net.it_tim.dude_of_ping3.database.DatabaseHome;
 import net.it_tim.dude_of_ping3.database.Hosts;
 
-import java.awt.GridLayout;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import java.util.List;
 
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+import javax.swing.JMenuItem;
+import javax.swing.JMenu;
+import java.awt.FlowLayout;
 
 public class DoP_GUI {
-
 	private JFrame frame;
-
 	/**
 	 * Launch the application.
 	 */
@@ -53,10 +53,10 @@ public class DoP_GUI {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 250, 240));
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(3, 3, 10, 10));
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		
 		DatabaseHome dh = new DatabaseHome();
-		List<Hosts>  host_list= dh.getAll(Hosts.class);
+		List<Hosts> host_list= dh.getAll(Hosts.class);
 		
 		for (Hosts host: host_list) { 
 			JSnmpLabel snmpLabel = new JSnmpLabel(host);
@@ -68,6 +68,12 @@ public class DoP_GUI {
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
+		
+		JMenu mnFile = new JMenu("File");
+		menuBar.add(mnFile);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mnFile.add(mntmExit);
 		
 	}
 

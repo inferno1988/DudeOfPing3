@@ -28,7 +28,7 @@ public class Server {
 		}
 		String strIPAddress = "192.168.33.178";
 		String[] oids = {"1.3.6.1.4.1.35160.1.3.0", "1.3.6.1.4.1.35160.1.7.0", "1.3.6.1.4.1.35160.1.8.0", "1.3.6.1.4.1.35160.1.1.0",
-				"1.3.6.1.4.1.35160.1.16.1.13.4"};
+				"1.3.6.1.4.1.35160.1.16.1.13.1"};
 		Server objSNMP = new Server();
 		objSNMP.snmpGet(strIPAddress, "public", oids);
 	}
@@ -61,8 +61,7 @@ public class Server {
 					PDU pduresponse = response.getResponse();
 					for (int i = 0; i < pduresponse.getVariableBindings()
 							.size(); i++) {
-						str = pduresponse.getVariableBindings().get(i)
-								.toString();
+						str = pduresponse.getVariableBindings().get(i).toString();
 
 						if (str.contains("=")) {
 							int len = str.indexOf("=");
