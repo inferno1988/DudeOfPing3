@@ -1,4 +1,4 @@
-package GUI;
+package net.it_tim.dude_of_ping3.GUI;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -26,14 +26,14 @@ import javax.swing.JButton;
 import java.awt.event.FocusEvent;
 import java.awt.Cursor;
 
-public class JSnmpLabel extends JPanel implements MouseListener,
-FocusListener {
+public class JSnmpLabel extends JPanel implements MouseListener, FocusListener {
 
 	private static final long serialVersionUID = 1L;
 	private static final float MAX_TEMPERATURE = 60.0f;
 	private JSnmpInternalStatusPanel internalStatusPanel = new JSnmpInternalStatusPanel(
 			"Status:");
-	private JSnmpInternalPanel temperaturePanel = new JSnmpInternalPanel("Температура:");
+	private JSnmpInternalPanel temperaturePanel = new JSnmpInternalPanel(
+			"Температура:");
 
 	public JSnmpLabel(Hosts host) {
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -46,10 +46,10 @@ FocusListener {
 		menuBar.add(mnDevice);
 		JMenuItem mntmReboot = new JMenuItem("Перезавантажити");
 		mnDevice.add(mntmReboot);
-		
+
 		Component horizontalStrut = Box.createHorizontalStrut(253);
 		menuBar.add(horizontalStrut);
-		
+
 		JButton btnShowInfo = new JButton("Інформація");
 		btnShowInfo.setFocusable(false);
 		btnShowInfo.setPreferredSize(new Dimension(120, 20));
@@ -74,7 +74,7 @@ FocusListener {
 		addMouseListener(this);
 		addFocusListener(this);
 	}
-	
+
 	public void setTemperature(float temperature) {
 		temperaturePanel.setValue(new Float(temperature).toString());
 		Float x = temperature;
@@ -118,7 +118,7 @@ FocusListener {
 			add(this.value);
 			setOpaque(false);
 		}
-		
+
 		public void setValue(String text) {
 			this.value.setText(text);
 		}
@@ -215,11 +215,13 @@ FocusListener {
 	public void mouseClicked(MouseEvent e) {
 		requestFocusInWindow();
 	}
+
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (!isFocusOwner())
 			setBackground(new Color(255, 0, 0, 20));
 	}
+
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (!isFocusOwner())
@@ -228,19 +230,19 @@ FocusListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		
+
 	}
 
 	@Override
 	public void focusGained(FocusEvent e) {
 		setBackground(Color.PINK);
 	}
-	
+
 	@Override
 	public void focusLost(FocusEvent e) {
 		setBackground(new Color(224, 224, 224));

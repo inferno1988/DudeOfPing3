@@ -1,4 +1,4 @@
-package GUI;
+package net.it_tim.dude_of_ping3.GUI;
 
 import java.awt.EventQueue;
 
@@ -14,10 +14,16 @@ import javax.swing.JMenu;
 import java.awt.FlowLayout;
 import javax.swing.JTabbedPane;
 
+import net.it_tim.dude_of_ping3.Server;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class DoP_GUI {
 	private JFrame frame;
 	private JPanel panel;
 	private JTabbedPane tabbedPane;
+
 	/**
 	 * Launch the application.
 	 */
@@ -54,33 +60,38 @@ public class DoP_GUI {
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Групи пристроїв", null, panel_2, null);
 		panel_2.setLayout(new BorderLayout(0, 0));
-		
+
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 250, 250));
 		panel_2.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
-		
+
 		JFolderIcon folderIcon = new JFolderIcon("test", tabbedPane);
 		panel.add(folderIcon);
-		
+
 		JFolderIcon folderIcon_1 = new JFolderIcon("tits", tabbedPane);
 		panel.add(folderIcon_1);
-		
+
 		JFolderIcon folderIcon_2 = new JFolderIcon("pron", tabbedPane);
 		panel.add(folderIcon_2);
-		
+
 		frame.setBounds(100, 100, 982, 806);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-		
+
 		JMenu mnFile = new JMenu("Файл");
 		menuBar.add(mnFile);
-		
+
 		JMenuItem mntmExit = new JMenuItem("Вихід");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		mnFile.add(mntmExit);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setOpaque(false);
 		FlowLayout flowLayout = (FlowLayout) panel_1.getLayout();
@@ -94,4 +105,4 @@ public class DoP_GUI {
 
 /*
  * 				
- */ 
+ */
